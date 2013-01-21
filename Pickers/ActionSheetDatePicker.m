@@ -32,6 +32,8 @@
 @interface ActionSheetDatePicker()
 @property (nonatomic, assign) UIDatePickerMode datePickerMode;
 @property (nonatomic, retain) NSDate *selectedDate;
+@property (nonatomic, retain) NSCalendar *cal;
+@property (nonatomic, retain) NSTimeZone *tz;
 @end
 
 @implementation ActionSheetDatePicker
@@ -56,8 +58,22 @@
     return self;
 }
 
+- (id)initWithTitle:(NSString *)title datePickerMode:(UIDatePickerMode)datePickerMode calendar:(NSCalendar *)calendar timeZone:(NSTimeZone *)timeZone selectedDate:(NSDate *)selectedDate target:(id)target action:(SEL)action origin:(id)origin {
+    self = [super initWithTarget:target successAction:action cancelAction:nil origin:origin];
+    if (self) {
+        self.title = title;
+        self.datePickerMode = datePickerMode;
+        self.cal = calendar;
+        self.tz = timeZone;
+        self.selectedDate = selectedDate;
+    }
+    return self;
+}
+
 - (void)dealloc {
     self.selectedDate = nil;
+    self.cal = nil;
+    self.tz = nil;
     [super dealloc];
 }
 
@@ -65,6 +81,8 @@
     CGRect datePickerFrame = CGRectMake(0, 40, self.viewSize.width, 216);
     UIDatePicker *datePicker = [[[UIDatePicker alloc] initWithFrame:datePickerFrame] autorelease];
     datePicker.datePickerMode = self.datePickerMode;
+    datePicker.calendar = self.cal;
+    datePicker.timeZone = self.tz;
     [datePicker setDate:self.selectedDate animated:NO];
     [datePicker addTarget:self action:@selector(eventForDatePicker:) forControlEvents:UIControlEventValueChanged];
     

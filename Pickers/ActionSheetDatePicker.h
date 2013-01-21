@@ -33,6 +33,8 @@
 
 - (id)initWithTitle:(NSString *)title datePickerMode:(UIDatePickerMode)datePickerMode selectedDate:(NSDate *)selectedDate target:(id)target action:(SEL)action origin:(id)origin;
 
+- (id)initWithTitle:(NSString *)title datePickerMode:(UIDatePickerMode)datePickerMode calendar:(NSCalendar *)calendar timeZone:(NSTimeZone *)timeZone selectedDate:(NSDate *)selectedDate target:(id)target action:(SEL)action origin:(id)origin;
+
 - (void)eventForDatePicker:(id)sender;
 
 @end
