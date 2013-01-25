@@ -249,10 +249,9 @@
 #pragma mark - Utilities and Accessors
 
 - (CGSize)viewSize {
-    CGSize screenSize = [[UIScreen mainScreen] bounds].size;
     if (![self isViewPortrait])
-        return CGSizeMake(screenSize.height, screenSize.width);
-    return CGSizeMake(screenSize.width, screenSize.height);
+        return CGSizeMake(480, 320);
+    return CGSizeMake(320, 480);
 }
 
 - (BOOL)isViewPortrait {
