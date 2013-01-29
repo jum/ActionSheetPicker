@@ -249,9 +249,12 @@
 #pragma mark - Utilities and Accessors
 
 - (CGSize)viewSize {
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+        return CGSizeMake(320, 480);
+    CGRect sr = [[UIScreen mainScreen] bounds];
     if (![self isViewPortrait])
-        return CGSizeMake(480, 320);
-    return CGSizeMake(320, 480);
+        return CGSizeMake(sr.size.height, 320);
+    return CGSizeMake(sr.size.width, 480);
 }
 
 - (BOOL)isViewPortrait {
