@@ -31,9 +31,9 @@
 
 @interface ActionSheetDatePicker()
 @property (nonatomic, assign) UIDatePickerMode datePickerMode;
-@property (nonatomic, retain) NSDate *selectedDate;
-@property (nonatomic, retain) NSCalendar *cal;
-@property (nonatomic, retain) NSTimeZone *tz;
+@property (nonatomic, strong) NSDate *selectedDate;
+@property (nonatomic, strong) NSCalendar *cal;
+@property (nonatomic, strong) NSTimeZone *tz;
 @end
 
 @implementation ActionSheetDatePicker
@@ -45,7 +45,7 @@
                  target:(id)target action:(SEL)action origin:(id)origin {
     ActionSheetDatePicker *picker = [[ActionSheetDatePicker alloc] initWithTitle:title datePickerMode:datePickerMode selectedDate:selectedDate target:target action:action origin:origin];
     [picker showActionSheetPicker];
-    return [picker autorelease];
+    return picker;
 }
 
 - (id)initWithTitle:(NSString *)title datePickerMode:(UIDatePickerMode)datePickerMode selectedDate:(NSDate *)selectedDate target:(id)target action:(SEL)action origin:(id)origin {
@@ -70,16 +70,9 @@
     return self;
 }
 
-- (void)dealloc {
-    self.selectedDate = nil;
-    self.cal = nil;
-    self.tz = nil;
-    [super dealloc];
-}
-
 - (UIView *)configuredPickerView {
     CGRect datePickerFrame = CGRectMake(0, 40, self.viewSize.width, 216);
-    UIDatePicker *datePicker = [[[UIDatePicker alloc] initWithFrame:datePickerFrame] autorelease];
+    UIDatePicker *datePicker = [[UIDatePicker alloc] initWithFrame:datePickerFrame];
     datePicker.datePickerMode = self.datePickerMode;
     datePicker.calendar = self.cal;
     datePicker.timeZone = self.tz;
