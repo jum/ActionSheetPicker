@@ -28,7 +28,11 @@
 #import <Foundation/Foundation.h>
 
 
-@interface AbstractActionSheetPicker : NSObject
+static NSString *const kButtonValue = @"buttonValue";
+
+static NSString *const kButtonTitle = @"buttonTitle";
+
+@interface AbstractActionSheetPicker : NSObject<UIPopoverControllerDelegate>
 @property (nonatomic, strong) UIToolbar* toolbar;
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, strong) UIView *pickerView;
@@ -50,7 +54,7 @@
 - (void)notifyTarget:(id)target didCancelWithAction:(SEL)cancelAction origin:(id)origin;
 
     // For subclasses.  This returns a configured picker view.  Subclasses should autorelease.
-- (UIPickerView *)configuredPickerView;
+- (UIView *)configuredPickerView;
 
     // Adds custom buttons to the left of the UIToolbar that select specified values
 - (void)addCustomButtonWithTitle:(NSString *)title value:(id)value;
