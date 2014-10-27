@@ -26,6 +26,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 
 static NSString *const kButtonValue = @"buttonValue";
@@ -40,6 +41,9 @@ static NSString *const kButtonTitle = @"buttonTitle";
 @property (nonatomic, strong) NSMutableArray *customButtons;
 @property (nonatomic, assign) BOOL hideCancel;
 @property (nonatomic, assign) CGRect presentFromRect;
+@property (nonatomic) NSDictionary *titleTextAttributes; // default is nil. Used to specify Title Label attributes.
+@property (nonatomic) NSAttributedString *attributedTitle; // default is nil. If titleTextAttributes not nil this value ignorred.
+@property (nonatomic, retain) Class popoverBackgroundViewClass; //allow popover customization on iPad
 
     // For subclasses.
 - (id)initWithTarget:(id)target successAction:(SEL)successAction cancelAction:(SEL)cancelActionOrNil origin:(id)origin;
@@ -67,5 +71,8 @@ static NSString *const kButtonTitle = @"buttonTitle";
 
     // Allow the user to specify a custom done button
 - (void) setDoneButton: (UIBarButtonItem *)button;
+
+    // Hide picker programmatically
+- (void) hidePickerWithCancelAction;
 
 @end

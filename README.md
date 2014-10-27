@@ -4,19 +4,33 @@
 [![Platform](https://img.shields.io/cocoapods/p/ActionSheetPicker-3.0.svg)](http://cocoadocs.org/docsets/ActionSheetPicker-3.0)
 [![Issues](http://img.shields.io/github/issues/skywinder/ActionSheetPicker-3.0.svg)](https://github.com/skywinder/ActionSheetPicker-3.0/issues?state=open)
 
+ActionSheetPicker-3.0
+==================
+- [Overview](#overview)
+- [Benefits](#benefits)
+- [QuickStart](#quickstart)
+- [Basic Usage](#basic-usage)
+- [ActionSheetCustomPicker Customization](#actionsheetcustompicker-customization)
+- [Installation](#installation)
+- [Example Projects](#example-projects)
+- [Screen Shots](#screen-shots)
+- [Apps using ActionSheetPicker-3.0](#apps-using-actionsheetpicker-30)
+- [Maintainer and Contributor](#maintainer-and-contributor)
+- [Credits](#credits)
+
 Since the [Tim's repo](https://github.com/TimCinel/ActionSheetPicker) is outdated, I forked from his repo and implement a bunch of UI fixes, crush-fixes and different customisation abilites.
 
-I resolved almost all (60+ pull requests and issues) in Tim's repo, but new updates will be added here.
-
-`pod 'ActionSheetPicker-3.0', '~> 1.1.13'` (**iOS 8** compatible already!)
+New updates will be added only in this repo.
 
 Please welcome: **ActionSheetPicker-3.0**!
+
+`pod 'ActionSheetPicker-3.0', '~> 1.2.0'` (**iOS 6-7-8** compatible!)
 
 **Bug reports, feature requests, patches, well-wishes, and rap demo tapes are always welcome.**
 
 _Regards, Petr Korolev_
 
-## ActionSheetPicker = UIPickerView + UIActionSheet ##
+##ActionSheetPicker = UIPickerView + UIActionSheet ##
 
 ![ActionSheetLocalePicker](https://raw.githubusercontent.com/skywinder/ActionSheetPicker-3.0/master/Screenshots/locale.png "ActionSheetLocalePicker")
 
@@ -42,11 +56,11 @@ Improvements more than welcome - they are kindly requested :)
  * Delegate protocol available for more control
  * Universal (iPhone/iPod/iPad)
 
-## QuickStart ##
+## QuickStart
 
 There are 4 distinct picker view options: `ActionSheetStringPicker`, `ActionSheetDistancePicker`, `ActionSheetDatePicker`, and `ActionSheetCustomPicker`. We'll focus here on how to use the `ActionSheetStringPicker` since it's most likely the one you want to use.
 
-#### Basic Usage:
+## Basic Usage ##
 
 ```objective-c
 // Inside a IBAction method:
@@ -115,7 +129,28 @@ Example with custom button for cancel button:
     [picker showActionSheetPicker];
 ```
 
-## Screen Shots ##
+##Installation##
+
+The most easiest way is through [Cocoapods](http://cocoapods.org/).
+Just add to your Podfile string: `pod 'ActionSheetPicker-3.0'
+
+The "old school" way is manually add to your project all from [Pickers](/Pickers) folder and import necessary headers.
+
+## Example Projects##
+#### For iOS 8 (Objective-C + Swift):
+
+To look at Examples, open in Xcode **Example.xcworkspace**.
+
+`open Example.xcworkspace`
+
+Here is 4 projects:
+
+- **CoreActionSheetPicker** - all picker files combined in one Framework. (available since `iOS 8`)
+- **ActionSheetPicker** - modern and descriptive Obj-C project with many examples.
+- **Swift-Example** - example, written on Swift. (only with basic 3 Pickers examples, for all examples please run `ActionSheetPicker` project)
+- **ActionSheetPicker-iOS6-7** -  iOS 6 and 7 comparable project. You can run this project separatly: `open Example-for-and-6/ActionSheetPicker.xcodeproj`
+
+## Screen Shots
 
 ![ActionSheetPicker](https://raw.githubusercontent.com/skywinder/ActionSheetPicker-3.0/master/Screenshots/string.png "ActionSheetPicker")
 ![ActionSheetDatePicker](https://raw.githubusercontent.com/skywinder/ActionSheetPicker-3.0/master/Screenshots/date.png "ActionSheetDatePicker")
@@ -124,14 +159,16 @@ Example with custom button for cancel button:
 ![iPad Support](https://raw.githubusercontent.com/skywinder/ActionSheetPicker-3.0/master/Screenshots/ipad.png "iPad Support")
 
 
-## Creator ##
+## Apps using ActionSheetPicker-3.0
+
+If you are using ActionSheetPicker-3.0 in your app or know of an app that uses it, please add it to [this list](https://github.com/skywinder/ActionSheetPicker-3.0/wiki/Apps-using-ActionSheetPicker-3.0).
+
+## Maintainer and Contributor
+
+- [Petr Korolev](http://github.com/skywinder) (update to iOS 7 and iOS 8, implementing new pickers, community support)
+
+## Credits
 
 ActionSheetPicker was originally created by [Tim Cinel](http://github.com/TimCinel) ([@TimCinel](http://twitter.com/TimCinel))
-
-## Maintainer and Contributor ##
-
-- [Petr Korolev](http://github.com/skywinder) (bugfixing, update to iOS 7 and iOS 8, implementing new pickers, community support)
-
-## Credits ##
 
 And most of all, thanks to ActionSheetPicker-3.0's [growing list of contributors](https://github.com/skywinder/ActionSheetPicker-3.0/graphs/contributors).
