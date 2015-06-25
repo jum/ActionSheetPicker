@@ -108,6 +108,19 @@ Then, run the following command:
 $ pod install
 ```
 
+### Import to project
+
+To import pod you should add string:
+
+- For `Obj-c` projects:
+
+        #import "ActionSheetPicker.h"
+
+- For `Swift` projects:
+
+
+        import ActionSheetPicker_3_0
+
 ### Carthage
 
 Carthage is a decentralized dependency manager that automates the process of adding frameworks to your Cocoa application.
