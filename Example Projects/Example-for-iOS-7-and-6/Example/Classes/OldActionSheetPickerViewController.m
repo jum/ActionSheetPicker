@@ -90,6 +90,7 @@
     ActionSheetLocalePicker *picker = [[ActionSheetLocalePicker alloc] initWithTitle:@"Select Locale:" initialSelection:[[NSTimeZone alloc] initWithName:@"Antarctica/McMurdo"] doneBlock:done cancelBlock:cancel origin:sender];
     [picker addCustomButtonWithTitle:@"My locale" value:[NSTimeZone localTimeZone]];
     picker.hideCancel = YES;
+    picker.tapDismissAction = TapActionCancel;
     [picker showActionSheetPicker];
 }
 
@@ -246,6 +247,7 @@
 
     UIButton *b2 = [UIButton buttonWithType:UIButtonTypeSystem];
     b2.frame = CGRectMake(540 - 100, 0, 100, 100);
+    b2.autoresizingMask=UIViewAutoresizingFlexibleLeftMargin;
     b2.backgroundColor = [UIColor redColor];
     [b2 setTitle:@"Dismiss" forState:UIControlStateNormal];
     [b2 addTarget:self action:@selector(dismiss:) forControlEvents:UIControlEventTouchUpInside];
