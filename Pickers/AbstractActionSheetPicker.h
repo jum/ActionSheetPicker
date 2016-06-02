@@ -77,9 +77,11 @@ static NSString *const kActionTarget  = @"buttonActionTarget";
 @property (nonatomic) NSAttributedString *attributedTitle; // default is nil. If titleTextAttributes not nil this value ignored.
 @property (nonatomic) NSDictionary *pickerTextAttributes; // default with a NSMutableParagraphStyle to set label align center. Used to specify Picker Label attributes.
 @property (nonatomic) UIColor *pickerBackgroundColor;
+@property (nonatomic) NSNumber *pickerBlurRadius;
 @property (nonatomic, retain) Class popoverBackgroundViewClass; //allow popover customization on iPad
 @property (nonatomic) UIInterfaceOrientationMask supportedInterfaceOrientations; // You can set your own supportedInterfaceOrientations value to prevent dismissing picker in some special cases.
 @property (nonatomic) TapAction tapDismissAction; // Specify, which action should be fired in case of tapping outside of the picker (on top darkened side). Default is TapActionNone.
+@property (nonatomic) BOOL popoverDisabled; // Disable popover behavior on iPad
 
 // For subclasses.
 - (instancetype)initWithTarget:(id)target successAction:(SEL)successAction cancelAction:(SEL)cancelActionOrNil origin:(id)origin;

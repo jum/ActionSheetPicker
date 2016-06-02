@@ -22,7 +22,7 @@ ActionSheetPicker-3.0
 
 Please welcome: **ActionSheetPicker-3.0**!
 
-`pod 'ActionSheetPicker-3.0', '~> 2.0.5'` (**iOS 5.1.1-9.x** compatible!)
+`pod 'ActionSheetPicker-3.0', '~> 2.1.0'` (**iOS 5.1.1-9.x** compatible!)
 
 ##ActionSheetPicker = UIPickerView + UIActionSheet ##
 
@@ -119,7 +119,7 @@ To import pod you should add string:
 - For `Swift` projects:
 
 
-        import ActionSheetPicker_3_0
+        import CoreActionSheetPicker
 
 ### Carthage
 
