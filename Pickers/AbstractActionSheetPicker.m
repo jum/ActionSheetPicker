@@ -164,7 +164,7 @@ CG_INLINE BOOL isIPhone4() {
 
         NSMutableParagraphStyle *labelParagraphStyle = [[NSMutableParagraphStyle alloc] init];
         labelParagraphStyle.alignment = NSTextAlignmentCenter;
-        self.pickerTextAttributes = @{NSParagraphStyleAttributeName : labelParagraphStyle};
+        self.pickerTextAttributes = [@{NSParagraphStyleAttributeName : labelParagraphStyle} mutableCopy];
 
         self.context = [CIContext contextWithOptions:nil];
         self.filter = [CIFilter filterWithName:@"CIGaussianBlur"];
@@ -173,6 +173,14 @@ CG_INLINE BOOL isIPhone4() {
     return self;
 }
 
+
+- (void)setTextColor:(UIColor *)textColor {
+    if (self.pickerTextAttributes) {
+        self.pickerTextAttributes[NSForegroundColorAttributeName] = textColor;
+    } else {
+        self.pickerTextAttributes = [@{NSForegroundColorAttributeName : [UIColor whiteColor]} mutableCopy];
+    }
+}
 
 - (instancetype)initWithTarget:(id)target successAction:(SEL)successAction cancelAction:(SEL)cancelActionOrNil origin:(id)origin {
     self = [self init];
@@ -261,7 +269,7 @@ CG_INLINE BOOL isIPhone4() {
     }
     [masterView addSubview:_pickerView];
 
-    if ((![MyPopoverController canShowPopover] || self.popoverDisabled) && !self.pickerBackgroundColor && [self.pickerBlurRadius intValue] > 0) {
+    if ((![MyPopoverController canShowPopover] || self.popoverDisabled) && !self.pickerBackgroundColor && !self.toolbarBackgroundColor && [self.pickerBlurRadius intValue] > 0) {
         [self blurPickerBackground];
     } else {
         [self presentPickerForView:masterView];
@@ -463,6 +471,9 @@ CG_INLINE BOOL isIPhone4() {
     CGRect frame = CGRectMake(0, 0, self.viewSize.width, 44);
     UIToolbar *pickerToolbar = [[UIToolbar alloc] initWithFrame:frame];
     pickerToolbar.barStyle = (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_6_1) ? UIBarStyleDefault : UIBarStyleBlackTranslucent;
+
+    pickerToolbar.barTintColor = self.toolbarBackgroundColor;
+    pickerToolbar.tintColor = self.toolbarButtonsColor;
 
     NSMutableArray *barItems = [[NSMutableArray alloc] init];
 
